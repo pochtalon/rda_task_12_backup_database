@@ -18,7 +18,7 @@ fi
 echo "Variables are present"
 
 # Making full backup for ShopDB data base
-mysqldump -u "$USER" -p "$PASSWORD" --databases ShopDB --result-file=full_backup.sql
+mysqldump -u "$USER" -p "$PASSWORD" ShopDB --result-file=full_backup.sql
 
 echo "First backup is created"
 
@@ -28,7 +28,7 @@ mysql -u "$USER" -p "$PASSWORD" ShopDBReserve < full_backup.sql
 echo "First backup is done"
 
 # Making data backup for ShopDB data base
-mysqldump -u "$USER" -p "$PASSWORD" --no-create-info --skip-add-drop-table --databases ShopDB --result-file=data_backup.sql
+mysqldump -u "$USER" -p "$PASSWORD" --no-create-info --skip-add-drop-table ShopDB --result-file=data_backup.sql
 
 echo "Second backup is created"
 
