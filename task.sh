@@ -4,6 +4,17 @@
 USER="${DB_USER}"
 PASSWORD="${DB_PASSWORD}"
 
+# Checking variables
+if [ -z "$USER" ]; then
+    echo "Environment variable DB_USER is not set."
+    exit 1
+fi
+
+if [ -z "$PASSWORD" ]; then
+    echo "Environment variable DB_PASSWORD is not set."
+    exit 1
+fi
+
 # Making full backup for ShopDB data base
 mysqldump -u "$USER" -p "$PASSWORD" --databases ShopDB --result-file=full_backup.sql
 
